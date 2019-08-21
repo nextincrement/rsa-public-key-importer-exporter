@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "simple-asn1-reader-writer",
+        "repositoryURL": "https://github.com/nextincrement/simple-asn1-reader-writer.git",
+        "state": {
+          "branch": null,
+          "revision": "c1a030f1ef707661caefcc676b04ccc4fd2d526c",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
