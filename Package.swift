@@ -41,7 +41,7 @@ let package = Package(
       targets: ["RSAPublicKeyExporter"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/nextincrement/simple-asn1-reader-writer.git", from: "0.0.1")
+    .package(url: "https://github.com/nextincrement/simple-asn1-reader-writer.git", from: "0.0.2")
   ],
   targets: targets
 )

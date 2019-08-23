@@ -10,7 +10,7 @@ import XCTest
 import SimpleASN1Reader
 import RSAPublicKeyImporter
 
-/// Note that encoding/decoding classes have not been mocked and will thus in fact be tested twice
+/// Note that reader has not been injected and mocked and will thus in fact be tested twice
 class RSAPublicKeyImporterTests: XCTestCase {
 
   // Encoding of an RSA public key, represented with the SubjectPublicKeyInfo type

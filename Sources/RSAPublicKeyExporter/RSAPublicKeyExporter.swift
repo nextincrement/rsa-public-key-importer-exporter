@@ -27,13 +27,13 @@ public struct RSAPublicKeyExporter: RSAPublicKeyExporting {
     writer.writeBytes([UInt8](rsaPublicKey))
 
     // Insert ASN.1 BIT STRING length and identifier bytes on top of it (as a wrapper)
-    writer.writeLengthAndIdentifierOfBitString()
+    writer.wrapBitString()
 
     // Insert ASN.1 AlgorithmIdentifier bytes on top of it (as a sibling)
     writer.writeBytes(algorithmIdentifierForRSAEncryption)
 
     // Insert ASN.1 SEQUENCE length and identifier bytes on top it (as a wrapper)
-    writer.writeLengthAndIdentifier(sequenceIdentifier)
+    writer.wrap(with: sequenceIdentifier)
 
     return Data(writer.encoding)
   }

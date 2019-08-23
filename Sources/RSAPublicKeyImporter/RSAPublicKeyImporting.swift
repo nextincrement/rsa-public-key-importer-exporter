@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// The `RSAPublicKeyImporting` protocol defines how to convert the `DER` encoding of an `RSA`
 /// public key from a format typically used by tools and programming languages outside the Apple
 /// ecosystem (e.g. OpenSSL, Java, PHP and Perl) to the _default_ format used by Apple. The `DER`

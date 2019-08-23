@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 /// The `RSAPublicKeyExporting` protocol defines how to convert the `DER` encoding of an `RSA`
 /// public key to a format typically used by tools and programming languages outside the iOS
 /// ecosystem (e.g. OpenSSL, Java, PHP and Perl). The `DER` encoding of an `RSA` public key created

@@ -24,7 +24,7 @@ public struct RSAPublicKeyImporter: RSAPublicKeyImporting {
     let reader = SimpleASN1Reader([UInt8](subjectPublicKeyInfo))
 
     // Skip bytes up to the content bytes of the ASN.1 SEQUENCE
-    try reader.skipIdentifierAndLength(expectedIdentifier: sequenceIdentifier)
+    try reader.unwrap(expectedIdentifier: sequenceIdentifier)
 
     // Skip ASN.1 AlgorithmIdentifier bytes
     try reader.skipBytes(matching: algorithmIdentifierForRSAEncryption)
