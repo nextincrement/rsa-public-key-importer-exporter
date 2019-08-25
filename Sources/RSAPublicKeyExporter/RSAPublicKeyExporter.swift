@@ -24,13 +24,13 @@ public struct RSAPublicKeyExporter: RSAPublicKeyExporting {
     let writer = SimpleASN1Writer()
 
     // Insert the ‘unwrapped’ DER encoding of the RSA public key
-    writer.writeBytes([UInt8](rsaPublicKey))
+    writer.write([UInt8](rsaPublicKey))
 
     // Insert ASN.1 BIT STRING length and identifier bytes on top of it (as a wrapper)
     writer.wrapBitString()
 
     // Insert ASN.1 AlgorithmIdentifier bytes on top of it (as a sibling)
-    writer.writeBytes(algorithmIdentifierForRSAEncryption)
+    writer.write(algorithmIdentifierForRSAEncryption)
 
     // Insert ASN.1 SEQUENCE length and identifier bytes on top it (as a wrapper)
     writer.wrap(with: sequenceIdentifier)

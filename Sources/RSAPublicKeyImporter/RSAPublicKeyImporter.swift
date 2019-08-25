@@ -27,7 +27,7 @@ public struct RSAPublicKeyImporter: RSAPublicKeyImporting {
     try reader.unwrap(expectedIdentifier: sequenceIdentifier)
 
     // Skip ASN.1 AlgorithmIdentifier bytes
-    try reader.skipBytes(matching: algorithmIdentifierForRSAEncryption)
+    try reader.skip(algorithmIdentifierForRSAEncryption)
 
     // Read contents of the ASN.1 BIT STRING
     let unwrappedKey = try reader.readContentsOfBitString()
