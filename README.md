@@ -20,7 +20,7 @@ $ swift run
 
 To depend on `rsa-public-key-importer-exporter`, put the following in the `dependencies` of your `Package.swift`:
 
-    .package(url: "https://github.com/nextincrement/rsa-public-key-importer-exporter.git", from: "0.0.3"),
+    .package(url: "https://github.com/nextincrement/rsa-public-key-importer-exporter.git", from: "0.1.0"),
 
 Code Examples:
 
@@ -120,7 +120,7 @@ Success!
 
 `rsa-public-key-importer-exporter` depends on the following:
 
-- [`simple-asn1-reader-writer`](https://github.com/nextincrement/simple-asn1-reader-writer), version 0.0.3 or better.
+- [`simple-asn1-reader-writer`](https://github.com/nextincrement/simple-asn1-reader-writer), version 0.1.0 or better.
 - Swift 5.0.
 
 ## Resources
