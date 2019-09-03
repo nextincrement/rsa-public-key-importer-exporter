@@ -1,10 +1,10 @@
 # RSA Public Key Importer and Exporter
 
-An importer and exporter for the `ASN.1 DER` encoding of an `RSA` public key.
+An importer and exporter for the ASN.1 DER encoding of an RSA public key.
 
 [![Swift Version][swift-image]][swift-url] [![License][license-image]][license-url]
 
-This project includes the `RSAPublicKeyImporter` and `RSAPublicKeyExporter` module, written in Swift and featuring an importer and exporter that can be used for converting the `ASN.1 DER` encoding of an `RSA` public key from and to a format typically used by tools and programming languages outside the Apple ecosystem (e.g. OpenSSL, Java, PHP and Perl).
+This project includes the `RSAPublicKeyImporter` and `RSAPublicKeyExporter` module, written in Swift and featuring an importer and exporter that can be used for converting the ASN.1 DER encoding of an RSA public key from and to a format typically used by tools and programming languages outside the Apple ecosystem (e.g. OpenSSL, Java, PHP and Perl).
 
 _Note that built-in support for both encoding formats is actually quite solid in the Apple ecosystem, meaning that the `RSAPublicKeyImporter` module is kind of redundant in that sense. However, this module can be used for testing the `RSAPublicKeyExporter` module that has a real-world application (or at least as long as Apple has no built-in support for exporting RSA public keys). In any case, both modules are considered a basic example of how the `SimpleASN1Reader` and `SimpleASN1Writer` module in the [simple-asn1-reader-writer](https://github.com/nextincrement/simple-asn1-reader-writer) project can be used._
 
@@ -15,7 +15,7 @@ _Note that built-in support for both encoding formats is actually quite solid in
 ```bash
 $ swift build
 $ swift test
-$ swift run
+$ swift run RSAPublicKeyImportExportDemo
 ```
 
 To depend on `rsa-public-key-importer-exporter`, put the following in the `dependencies` of your `Package.swift`:
@@ -53,10 +53,10 @@ $ openssl genrsa -out key.pem 2048
 $ openssl rsa -in key.pem -outform PEM -pubout -out public.pem
 ```
 
-Extract the `Base64` encoded `DER` encoding from the `key.pem` file, paste it in [this file](https://github.com/nextincrement/rsa-public-key-importer-exporter/blob/master/Sources/RSAPublicKeyImportExportDemo/main.swift) (or simply keep the example key unchanged) and run the demo:
+Extract the Base64 encoded DER encoding from the `key.pem` file, paste it in [this file](https://github.com/nextincrement/rsa-public-key-importer-exporter/blob/master/Sources/RSAPublicKeyImportExportDemo/main.swift) (or simply keep the example key unchanged) and run the demo:
 
 ```bash
-$ swift run
+$ swift run RSAPublicKeyImportExportDemo
 ```
 
 Expected output:

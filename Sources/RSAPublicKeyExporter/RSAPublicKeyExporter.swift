@@ -14,7 +14,7 @@ public struct RSAPublicKeyExporter: RSAPublicKeyExporting {
   // ASN.1 identifier byte
   public let sequenceIdentifier: UInt8 = 0x30
 
-  // ASN.1 AlgorithmIdentfier for RSA encryption containing OID 1 2 840 113549 1 1 1; NULL
+  // ASN.1 AlgorithmIdentfier for RSA encryption: OID 1 2 840 113549 1 1 1 and NULL
   private let algorithmIdentifierForRSAEncryption: [UInt8] = [0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86,
     0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00]
 
