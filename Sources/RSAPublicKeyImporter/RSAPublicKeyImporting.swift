@@ -12,20 +12,20 @@ import Foundation
 /// public key from a format typically used by tools and programming languages outside the Apple
 /// ecosystem (e.g. OpenSSL, Java, PHP and Perl) to the _default_ format used by Apple. The DER
 /// encoding of an RSA public key created by iOS is represented with the ASN.1 RSAPublicKey type
-/// as defined by PKCS#1. However, many systems outside the Apple ecosystem expect the DER
+/// as defined by PKCS #1. However, many systems outside the Apple ecosystem expect the DER
 /// encoding of a key to be represented with the ASN.1 SubjectPublicKeyInfo type as defined by
 ///  X.509. The types are related in a way that if the algorithm field of the
 /// SubjectPublicKeyInfo type contains the rsaEncryption object identifier as defined by
-/// PKCS#1, the subjectPublicKey field shall contain the DER encoding of an RSA key that is
+/// PKCS #1, the subjectPublicKey field shall contain the DER encoding of an RSA key that is
 /// represented with the RSAPublicKey type.
 ///
-/// ## General Considerations
+/// ### General Considerations
 /// Keep in mind that both encoding formats are in fact supported by the Apple ecosystem when
 /// _importing_ an RSA public key. And this module is actually kind of redundant in that sense.
 /// However, the main purpose of this protocol and its accompanying implementation is to show how
 /// the `SimpleASN1Reader` can be used.
 ///
-/// ## Security Considerations
+/// ### Security Considerations
 /// If exchanging bare public keys over a network (that is, without using a verified certificate),
 /// consider setting up a TLS secured connection before sending any (additional) keys. And if
 /// exchanging bare public keys more than once, e.g. after enrolling the app, consider using an
@@ -40,10 +40,10 @@ public protocol RSAPublicKeyImporting {
   /// Note that it will not be verified that the provided key has a DER encoding format. If This
   /// key has not been DER encoded, the result will simply not be DER encoded as well.
   ///
-  /// - Parameter subjectPublicKeyInfo: `Data` object containing the DER encoding of an RSA
-  ///     public key, represented with the ASN.1 SubjectPublicKeyInfo type
-  ///
-  /// - Returns: `Data` object containing the DER encoding of an RSA public key, represented
-  ///     with the ASN.1 RSAPublicKey type
+  /// - Parameter subjectPublicKeyInfo: A data object containing the DER encoding of an RSA
+  ///     public key, which is represented with the ASN.1 SubjectPublicKeyInfo type.
+  /// - Returns: A data object containing the DER encoding of an RSA public key, which is
+  ///     represented with the ASN.1 RSAPublicKey type.
+  /// - Throws: An `ASN1ReadError` if the input has an invalid encoding.
   func fromSubjectPublicKeyInfo(_ subjectPublicKeyInfo: Data) throws -> Data
 }

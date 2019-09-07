@@ -11,14 +11,14 @@ import Foundation
 /// The `RSAPublicKeyExporting` protocol defines how to convert the DER encoding of an RSA
 /// public key to a format typically used by tools and programming languages outside the iOS
 /// ecosystem (e.g. OpenSSL, Java, PHP and Perl). The DER encoding of an RSA public key created
-/// by iOS is represented with the ASN.1 RSAPublicKey type as defined by PKCS#1. However, many
+/// by iOS is represented with the ASN.1 RSAPublicKey type as defined by PKCS #1. However, many
 /// systems outside the Apple ecosystem expect the DER encoding of a key to be represented with
 /// the ASN.1 SubjectPublicKeyInfo type as defined by X.509. The types are related in a way that
 /// if the algorithm field of the SubjectPublicKeyInfo type contains the rsaEncryption object
-/// identifier as defined by PKCS#1, the subjectPublicKey field shall contain the DER encoding
+/// identifier as defined by PKCS #1, the subjectPublicKey field shall contain the DER encoding
 /// of an RSA key that is represented with the RSAPublicKey type.
 ///
-/// ## Security Considerations
+/// ### Security Considerations
 /// If exchanging bare public keys over a network (that is, without using a verified certificate),
 /// consider setting up a TLS secured connection before sending any (additional) keys. And if
 /// exchanging bare public keys more than once, e.g. after enrolling the app, consider using an
@@ -34,10 +34,9 @@ public protocol RSAPublicKeyExporting {
   /// result will be DER encoded as well. However, it will not be verified that the provided key
   /// is in fact DER encoded.
   ///
-  /// - Parameter rsaPublicKey: Data object containing the DER (or BER) encoding of an RSA
-  ///     public key, represented with the ASN.1 RSAPublicKey type
-  ///
-  /// - Returns: `Data` object containing the DER (or BER) encoding of an RSA public key,
-  ///     represented with the ASN.1 SubjectPublicKeyInfo type
+  /// - Parameter rsaPublicKey: A data object containing the DER (or BER) encoding of an RSA
+  ///     public key, which is represented with the ASN.1 RSAPublicKey type.
+  /// - Returns: A data object containing the DER (or BER) encoding of an RSA public key,
+  ///     which is represented with the ASN.1 SubjectPublicKeyInfo type.
   func toSubjectPublicKeyInfo(_ rsaPublicKey: Data) -> Data
 }
